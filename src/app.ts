@@ -1,5 +1,7 @@
 import { join } from 'path';
 import AutoLoad, {AutoloadPluginOptions} from '@fastify/autoload';
+import fastifySwagger from '@fastify/swagger';
+import fastifySwaggerUi from '@fastify/swagger-ui';
 import { FastifyPluginAsync } from 'fastify';
 
 export type AppOptions = {
@@ -24,8 +26,21 @@ const app: FastifyPluginAsync<AppOptions> = async (
   void fastify.register(AutoLoad, {
     dir: join(__dirname, 'routes'),
     options: opts
+  });
+
+  void fastify.register(fastifySwagger, {
+    swagger: {
+      info: {
+        title: "Sound Space+ Online Services API",
+        description: "WooHoo",
+        version: "0.0.1"
+      }
+    }
   })
 
+  void fastify.register(fastifySwaggerUi, {
+    routePrefix: "/docs",
+  })
 };
 
 export default app;

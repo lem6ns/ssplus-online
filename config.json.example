@@ -1,0 +1,12 @@
+{
+    "mapPath": "/maps/ssp/",
+    "paths": {
+        "audio": "/maps/audio/",
+        "download": "/maps/download/",
+        "cover": "/maps/cover/",
+        "txt": "/maps/txt/"
+    },
+    "host": "localhost",
+    "port": "3000",
+    "trustProxy": false
+}
