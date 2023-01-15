@@ -3,3 +3,8 @@ A rewrite of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-online) i
 
 # Documentation
 Swagger Docs are available at UNAVAILABLE.
+
+# To Do List
+- [ ] .sspm file parser
+- [ ] plugin for prefix setting
+- [ ] ???
