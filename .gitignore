@@ -66,3 +66,4 @@ dist
 
 # my own
 config.json
+config-fastify.json
