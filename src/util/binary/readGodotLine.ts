@@ -8,7 +8,10 @@ const readGodotLine = (buffer: Buffer, offset: number) => {
 	}
 
 	const value = buffer.subarray(offset, endPos);
-	return { text: value.toString("utf-8"), off: endPos + 1 };
+	return {
+		text: value.toString("utf-8"),
+		off: endPos + 1,
+	};
 };
 
 export default readGodotLine;
