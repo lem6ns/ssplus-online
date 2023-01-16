@@ -75,16 +75,16 @@ const getAudio = (metadata: SSPM) => {
 	if (!metadata.path) {
 		throw "No file loaded";
 	}
-	if (!((metadata.broken && metadata.music_offset ) && metadata.music_length)) {
+	if (!(metadata.broken && metadata.music_offset && metadata.music_length)) {
 		const file = fs.readFileSync(metadata.path, { encoding: null });
 		return file.subarray(
 			metadata.music_offset,
 			// @ts-ignore, we already check if it's defined or not
 			metadata.music_offset + metadata.music_length,
 		);
-	} else {
-		throw "File does not have audio";
 	}
+
+	throw "File does not have audio";
 };
 
 const getBuffer = (metadata: SSPM) => {
@@ -93,6 +93,22 @@ const getBuffer = (metadata: SSPM) => {
 	}
 
 	return fs.readFileSync(metadata.path, { encoding: null });
+};
+
+const getCover = (metadata: SSPM) => {
+	if (!metadata.path) {
+		throw "No file loaded";
+	}
+
+	if (metadata.has_cover && !this.cover_offset && !this.cover_length) {
+		const file = fs.readFileSync(this.path, { encoding: null });
+		return file.subarray(
+			this.cover_offset,
+			this.cover_offset + this.cover_length,
+		);
+	}
+
+	throw "File does not have a cover";
 };
 
 const getNotes = (metadata: SSPM) => {
@@ -150,4 +166,4 @@ const getClean = (metadata: SSPM) => {
 	return data;
 };
 
-export { getMetadata, getAudio, getBuffer, getTxt, getClean };
+export { getMetadata, getAudio, getBuffer, getCover, getTxt, getClean };

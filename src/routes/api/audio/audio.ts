@@ -1,7 +1,7 @@
 import { FastifyPluginAsync, FastifyRequest } from "fastify";
 import { maps } from "../../../util/getAllMaps";
-import * as config from "../../../../config.json";
 import { getAudio } from "../../../util/parser";
+import * as config from "../../../../config.json";
 
 const audio: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	type Request = FastifyRequest<{

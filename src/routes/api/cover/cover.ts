@@ -1,5 +1,7 @@
 import { FastifyPluginAsync, FastifyRequest } from "fastify";
+import { maps } from "../../../util/getAllMaps";
 import * as config from "../../../../config.json";
+import { getCover } from "../../../util/parser";
 
 const cover: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	type Request = FastifyRequest<{
@@ -7,7 +9,17 @@ const cover: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	}>;
 
 	fastify.get("/:id", async function (request: Request, reply) {
-		return request.params.id;
+		const map = maps[request.params.id];
+		if (!map) {
+			reply.status(404);
+			return {
+				error: "022-310",
+				info: "Map with requested ID does not exist",
+			};
+		};
+		
+		reply.header("Content-Type", "image/png");
+		return getCover(map);
 	});
 };
 
