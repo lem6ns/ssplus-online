@@ -1,5 +1,5 @@
 import { FastifyPluginAsync, FastifyRequest } from "fastify";
-import { maps } from "../../../util/getAllMaps";
+import { mapsClean } from "../../../util/getAllMaps";
 
 const map: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	type Request = FastifyRequest<{
@@ -7,7 +7,7 @@ const map: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	}>;
 
 	fastify.get("/:id", async function (request: Request, reply) {
-		const map = maps[request.params.id];
+		const map = mapsClean[request.params.id];
 		if (!map) {
 			reply.status(404);
 			return {

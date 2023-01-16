@@ -2,6 +2,7 @@ import { join } from "path";
 import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
 import { FastifyPluginAsync } from "fastify";
 import * as config from "../config.json";
+import fastifyRateLimit from "@fastify/rate-limit";
 
 export type AppOptions = {
 	// Place your custom options for app below here.
@@ -27,6 +28,11 @@ const app: FastifyPluginAsync<AppOptions> = async (
 		dir: join(__dirname, "routes"),
 		options: opts,
 	});
+
+	void fastify.register(fastifyRateLimit, {
+		max: 40,
+		timeWindow: "15 seconds"
+	})
 };
 
 export default app;
