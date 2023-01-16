@@ -13,6 +13,7 @@ A ~~rewrite~~ port of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-
   - `/maps/txt/<id>` - Downloads the map as a .txt
 
 # To Do List
-- [ ] .sspm file parser
+- [x] .sspm file parser
 - [x] ~~plugin for prefix setting~~ too lazy, just used `plugin.autoPrefix` in each route
-- [ ] ???
+- [ ] add routes
+- [ ] Tests
