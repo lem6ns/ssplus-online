@@ -64,8 +64,9 @@ const getMetadata = (path: string) => {
 			return;
 	}
 
+	metadata.tags = []; // do this because of pass-by-reference stuff (idk what pass-by-reference is!!)
 	if (metadata.id.startsWith("ss_archive")) {
-		metadata.tags = [...metadata.tags, "ss_archive"] // do this instead of .unshift to prevent leftover tags
+		metadata.tags.unshift("ss_archive");
 	}
 	return metadata;
 };
@@ -74,16 +75,16 @@ const getAudio = (metadata: SSPM) => {
 	if (!metadata.path) {
 		throw "No file loaded";
 	}
-	if (!(metadata.broken || metadata.music_offset || metadata.music_length)) {
+	if (!((metadata.broken && metadata.music_offset ) && metadata.music_length)) {
 		const file = fs.readFileSync(metadata.path, { encoding: null });
 		return file.subarray(
 			metadata.music_offset,
 			// @ts-ignore, we already check if it's defined or not
 			metadata.music_offset + metadata.music_length,
 		);
+	} else {
+		throw "File does not have audio";
 	}
-
-	throw "File does not have audio";
 };
 
 const getBuffer = (metadata: SSPM) => {
