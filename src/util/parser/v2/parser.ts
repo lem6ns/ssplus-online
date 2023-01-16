@@ -39,6 +39,7 @@ const baseFile: SSPM = {
 
 const parse = (file: Buffer, path: string) => {
 	let info = baseFile;
+	info.path = path;
 	let offset = 6;
 	if (file.readInt32LE(offset) !== 0) {
 		throw "Header reserved space is not 0";

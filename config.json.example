@@ -6,5 +6,6 @@
         "cover": "/maps/cover/",
         "txt": "/maps/txt/"
     },
-    "trustProxy": false
+    "trustProxy": false,
+    "domain": "http://localhost:3000"
 }
