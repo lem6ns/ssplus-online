@@ -4,6 +4,7 @@ A ~~rewrite~~ port of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-
 # API Information
   ## Listing maps
   - `/api/all` - Gets a list of all maps
+  - `/api/map/<id>` - Gets a specific map
   - `/api/filter/difficulty?filter=-1,0,1,2,3,4` - Filter by difficulty
   
   ## Downloads
@@ -15,5 +16,5 @@ A ~~rewrite~~ port of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-
 # To Do List
 - [x] .sspm file parser
 - [x] ~~plugin for prefix setting~~ too lazy, just used `plugin.autoPrefix` in each route
-- [ ] add routes
+- [x] add routes
 - [ ] Tests
