@@ -3,7 +3,7 @@ import { maps } from "../../../util/getAllMaps";
 import { getBuffer } from "../../../util/parser";
 import * as config from "../../../../config.json";
 
-const cover: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
+const download: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	type Request = FastifyRequest<{
 		Params: { id: string };
 	}>;
@@ -26,5 +26,5 @@ const cover: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	});
 };
 
-export const autoPrefix = config.siteRoutes.cover;
-export default cover;
+export const autoPrefix = config.siteRoutes.download;
+export default download;
