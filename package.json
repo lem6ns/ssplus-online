@@ -1,6 +1,6 @@
 {
   "name": "ssplus-online",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A rewrite of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-online) in [Fastify](https://fastify.io) & [TypeScript](https://www.typescriptlang.org).",
   "main": "app.ts",
   "directories": {
