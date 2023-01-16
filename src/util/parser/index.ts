@@ -64,7 +64,7 @@ const getMetadata = (path: string) => {
 			return;
 	}
 
-	metadata.tags = []; // do this because of pass-by-reference stuff (idk what pass-by-reference is!!)
+	metadata.tags = []; // do metadata because of pass-by-reference stuff (idk what pass-by-reference is!!)
 	if (metadata.id.startsWith("ss_archive")) {
 		metadata.tags.unshift("ss_archive");
 	}
@@ -100,11 +100,12 @@ const getCover = (metadata: SSPM) => {
 		throw "No file loaded";
 	}
 
-	if (metadata.has_cover && !this.cover_offset && !this.cover_length) {
-		const file = fs.readFileSync(this.path, { encoding: null });
+	if (metadata.has_cover && !metadata.cover_offset && !metadata.cover_length) {
+		const file = fs.readFileSync(metadata.path, { encoding: null });
 		return file.subarray(
-			this.cover_offset,
-			this.cover_offset + this.cover_length,
+			metadata.cover_offset,
+			// @ts-ignore, we already checked this
+			metadata.cover_offset + metadata.cover_length,
 		);
 	}
 
