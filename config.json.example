@@ -1,0 +1,11 @@
+{
+    "mapPath": "/maps/ssp/",
+    "siteRoutes": {
+        "audio": "/maps/audio/",
+        "download": "/maps/download/",
+        "cover": "/maps/cover/",
+        "txt": "/maps/txt/"
+    },
+    "trustProxy": false,
+    "domain": "http://localhost:3000"
+}

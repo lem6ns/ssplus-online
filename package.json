@@ -1,24 +1,36 @@
 {
-  "name": "ssplus",
+  "name": "ssplus-online",
   "version": "1.0.0",
-  "description": "Sound Space+ Online Services",
-  "main": "index.js",
+  "description": "A rewrite of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-online) in [Fastify](https://fastify.io) & [TypeScript](https://www.typescriptlang.org).",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "node mapdb_server.js"
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --no-timeout --ts \"test/**/*.test.ts\"",
+    "start": "npm run build:ts && fastify start -c config-fastify.json -l info dist/src/app.js",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/src/app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Chedski/ssplus-online.git"
-  },
-  "author": "Chedski",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Chedski/ssplus-online/issues"
-  },
-  "homepage": "https://github.com/Chedski/ssplus-online#readme",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.1",
-    "express-rate-limit": "^6.5.1",
-    "js-yaml": "^4.1.0"
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/rate-limit": "^7.6.0",
+    "@fastify/sensible": "^5.0.0",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^5.7.1",
+    "fastify-plugin": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/tap": "^15.0.5",
+    "concurrently": "^7.0.0",
+    "fastify-tsconfig": "^1.0.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   }
 }
