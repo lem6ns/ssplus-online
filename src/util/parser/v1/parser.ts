@@ -13,7 +13,7 @@ const DifficultyName = {
 const baseFile: SSPM = {
 	id: "_ERROR",
 	path: "",
-	version: -1,
+	version: 1,
 	name: "Unknown Artist - Unknown Song",
 	song: "Unknown Artist - Unknown Song",
 	author: [],
@@ -39,6 +39,7 @@ const baseFile: SSPM = {
 
 const parse = (file: Buffer, path: string) => {
 	let info = baseFile;
+    info.path = path;
 	let offset = 6;
 	if (file.readInt16LE(offset) !== 0) {
 		throw "Header reserved space is not 0";

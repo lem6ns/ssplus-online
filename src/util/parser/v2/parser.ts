@@ -13,7 +13,7 @@ const DifficultyName = {
 const baseFile: SSPM = {
 	id: "_ERROR",
 	path: "",
-	version: -1,
+	version: 2,
 	name: "Unknown Artist - Unknown Song",
 	song: "Unknown Artist - Unknown Song",
 	author: [],
@@ -37,7 +37,7 @@ const baseFile: SSPM = {
 	marker_types: [],
 };
 
-const parse = (file: Buffer) => {
+const parse = (file: Buffer, path: string) => {
 	let info = baseFile;
 	let offset = 6;
 	if (file.readInt32LE(offset) !== 0) {
@@ -157,6 +157,7 @@ const parse = (file: Buffer) => {
 		}
 		offset += 1;
 	}
+    return info;
 };
 
 export default parse;
