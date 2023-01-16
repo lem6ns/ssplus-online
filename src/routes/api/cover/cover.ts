@@ -1,7 +1,7 @@
 import { FastifyPluginAsync, FastifyRequest } from "fastify";
 import { maps } from "../../../util/getAllMaps";
-import * as config from "../../../../config.json";
 import { getCover } from "../../../util/parser";
+import * as config from "../../../../config.json";
 
 const cover: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 	type Request = FastifyRequest<{
