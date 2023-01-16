@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import { SSPM } from "../types";
+import { SSPM } from "../Types";
 
 const getNotes = (metadata: SSPM) => {
 	const file = fs.readFileSync(metadata.path, { encoding: null });

@@ -1,7 +1,7 @@
 // @ts-nocheck because i'm too lazy to add types
 import * as fs from "node:fs";
 import * as util from "../../binary";
-import { SSPM } from "../types";
+import { SSPM } from "../Types";
 
 const DT_POSITION = 7;
 

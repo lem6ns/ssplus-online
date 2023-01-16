@@ -1,5 +1,5 @@
 import * as util from "../../binary/index";
-import { SSPM } from "../types";
+import { SSPM } from "../Types";
 
 const DifficultyName = {
 	[-1]: "N/A",

@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import { SSPM } from "./types";
+import { SSPM } from "./Types";
 import v1Parser from "./v1/parser";
 import v2Parser from "./v2/parser";
 import v1Notes from "./v1/notes";
