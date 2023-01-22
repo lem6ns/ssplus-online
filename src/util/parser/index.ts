@@ -100,7 +100,7 @@ const getCover = (metadata: SSPM) => {
 		throw "No file loaded";
 	}
 
-	if (metadata.has_cover && !metadata.cover_offset && !metadata.cover_length) {
+	if (metadata.has_cover && metadata.cover_offset && metadata.cover_length) {
 		const file = fs.readFileSync(metadata.path, { encoding: null });
 		return file.subarray(
 			metadata.cover_offset,
