@@ -100,7 +100,7 @@ const getCover = (metadata: SSPM) => {
 		throw "No file loaded";
 	}
 
-	if (metadata.has_cover && !metadata.cover_offset && !metadata.cover_length) {
+	if (metadata.has_cover && metadata.cover_offset && metadata.cover_length) {
 		const file = fs.readFileSync(metadata.path, { encoding: null });
 		return file.subarray(
 			metadata.cover_offset,
@@ -139,7 +139,7 @@ const getClean = (metadata: SSPM) => {
 		txt: `${config.domain}${config.siteRoutes.txt}/${metadata.id}`,
 		audio: `${config.domain}${config.siteRoutes.audio}/${metadata.id}`,
 		cover: metadata.has_cover
-			? `${config.domain}${config.siteRoutes.audio}/${metadata.id}`
+			? `${config.domain}${config.siteRoutes.cover}/${metadata.id}`
 			: null,
 		version: metadata.version,
 		name: metadata.name,
