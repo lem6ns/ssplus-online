@@ -1,6 +1,9 @@
 # ssplus-online
 A ~~rewrite~~ port of [Chedski/ssplus-online](https://github.com/Chedski/ssplus-online) in [Fastify](https://fastify.io) & [TypeScript](https://www.typescriptlang.org).
 
+# Public Instance (hosted by me)
+[https://soundspace.embeds.video](https://soundspace.embeds.video)
+
 # API Information
   ## Listing maps
   - `/api/all` - Gets a list of all maps
