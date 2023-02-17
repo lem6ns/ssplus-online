@@ -1,11 +1,11 @@
 {
-    "mapPath": "/maps/ssp/",
+    "mapPath": "/root/maps",
     "siteRoutes": {
-        "audio": "/maps/audio/",
-        "download": "/maps/download/",
-        "cover": "/maps/cover/",
-        "txt": "/maps/txt/"
+        "audio": "/maps/audio",
+        "download": "/maps/download",
+        "cover": "/maps/cover",
+        "txt": "/maps/txt"
     },
     "trustProxy": false,
-    "domain": "http://localhost:3000"
+    "domain": "http://soundspace.embeds.video"
 }
