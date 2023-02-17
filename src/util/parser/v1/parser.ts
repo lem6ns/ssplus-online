@@ -39,7 +39,7 @@ const baseFile: SSPM = {
 
 const parse = (file: Buffer, path: string) => {
 	let info = baseFile;
-    info.path = path;
+	info.path = path;
 	let offset = 6;
 	if (file.readInt16LE(offset) !== 0) {
 		throw "Header reserved space is not 0";
@@ -106,13 +106,10 @@ const parse = (file: Buffer, path: string) => {
 			file.subarray(offset, offset + 5),
 		);
 
-		if (music_format === "unknown") {
-			info.broken = true;
-		} else {
-			info.music_format = music_format;
-			info.music_offset = offset;
-			info.music_length = buffer_length;
-		}
+		info.broken = !music_format;
+		info.music_format = music_format;
+		info.music_offset = offset;
+		info.music_length = buffer_length;
 
 		offset += buffer_length;
 	}
@@ -121,7 +118,7 @@ const parse = (file: Buffer, path: string) => {
 	info.note_data_offset = offset;
 	info.note_data_length = file.byteLength - offset;
 
-    return info;
+	return info;
 };
 
 export default parse;

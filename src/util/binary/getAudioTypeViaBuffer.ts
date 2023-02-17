@@ -1,4 +1,4 @@
-function getAudioTypeViaBuffer(buffer: Buffer): "unknown" | "ogg" | "mp3" {
+function getAudioTypeViaBuffer(buffer: Buffer): "ogg" | "mp3" | null {
 	if (buffer.toString().startsWith("OggS")) {
 		// OggS = 0x4F,0x67,0x67,0x53
 		return "ogg";
@@ -18,7 +18,7 @@ function getAudioTypeViaBuffer(buffer: Buffer): "unknown" | "ogg" | "mp3" {
 		}
 	}
 
-	return "unknown";
+	return null;
 }
 
 export default getAudioTypeViaBuffer;
