@@ -36,9 +36,6 @@ export interface SSPM {
 export interface Clean {
 	id: string;
 	download: string;
-	txt: string;
-	audio: string;
-	cover: string | null;
 	version: number;
 	name: string;
 	song: string;
