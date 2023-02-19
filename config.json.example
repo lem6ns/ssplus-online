@@ -1,10 +1,7 @@
 {
     "mapPath": "/root/maps",
     "siteRoutes": {
-        "audio": "/maps/audio",
-        "download": "/maps/download",
-        "cover": "/maps/cover",
-        "txt": "/maps/txt"
+        "download": "/maps/download"
     },
     "trustProxy": false,
     "domain": "http://soundspace.embeds.video"
